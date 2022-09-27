@@ -19,24 +19,18 @@
             @include('layouts.navigation')
 
             <!-- Page Heading -->
-            <header >
-                <div class="max-w-7xl mx-auto mt-1">
-                    {{ $header }}
-                </div>
+            <header class="max-w-7xl mx-auto mt-1 bg-white">
+                {{ $header }}
             </header>
 
             <!-- Page Content -->
-            <main>
-                <div class="max-w-7xl mx-auto border-y-2">
+            <main class="max-w-7xl mx-auto mt-1 bg-white">
                 {{ $slot }}
-                </div>
             </main>
 
-            <!-- Page Heading -->
-            <footer >
-                <div class="max-w-7xl mx-auto">
-                    {{ $footer }}
-                </div>
+            <!-- Page Footer -->
+            <footer class="max-w-7xl mx-auto mt-1 bg-white">
+                {{ $footer }}
             </footer>
         </div>
     </body>
