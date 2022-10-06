@@ -1,0 +1,38 @@
+<?php
+
+namespace App\View\Components;
+
+use Illuminate\View\Component;
+
+class Alert extends Component
+{
+    /**
+     * Create a new component instance.
+     *
+     * @return void
+     */
+    public $title, $type='info', $typeColor='blue';
+
+    public function __construct($type)
+    {
+        if($type == 'success'){
+            $this->typeColor='green';
+        }
+        elseif($type == 'warning'){
+            $this->typeColor='yellow';
+        }
+        elseif($type == 'danger'){
+            $this->typeColor='red';
+        }
+    }
+
+    /**
+     * Get the view / contents that represent the component.
+     *
+     * @return \Illuminate\Contracts\View\View|\Closure|string
+     */
+    public function render()
+    {
+        return view('components.alert');
+    }
+}
