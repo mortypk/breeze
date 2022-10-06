@@ -62,6 +62,8 @@
                     </x-slot>
                     Laravel Welcome Page Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet nisi rerum perferendis ex veritatis, laboriosam ad explicabo porro, atque voluptates nihil? Explicabo autem eligendi molestiae rerum impedit unde dolorem eaque.
                 </x-alert>
+                <x-badge nvalue="10">Warnings</x-badge>
+                <x-badge nvalue="70">Notification</x-badge>
             </div>
         </div>
     </body>
