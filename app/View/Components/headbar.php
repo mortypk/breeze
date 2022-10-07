@@ -11,9 +11,10 @@ class headbar extends Component
      *
      * @return void
      */
+    public $bgcolor;
     public function __construct()
     {
-        //
+        $this->bgcolor=trans('theme.bgcolor');
     }
 
     /**

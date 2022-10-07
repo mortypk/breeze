@@ -63,10 +63,18 @@
                 <x-headbar>
                     {{ __('captions.dashboard') }}
                 </x-headbar>
-                <x-statusbar>
-            {{ __('captions.status') }}
-        </x-statusbar>
                 <x-badge nvalue="70">Notification</x-badge>
+                @include('layouts.icons')
+                <x-statusbar>
+                    {{ __('captions.status') }}
+                    @php
+                    echo trans('auth.failed');
+                    @endphp
+                </x-statusbar>
+                <x-toast type='warning'>
+                    <x-slot name='title'>Toast Heading</x-slot>
+                    New Toast Message view
+                </x-toast>
             </div>
         </div>
     </body>

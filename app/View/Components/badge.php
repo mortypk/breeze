@@ -6,15 +6,15 @@ use Illuminate\View\Component;
 
 class badge extends Component
 {
-    public $title, $nvalue=0, $bgcolor='blue';
+    public $title, $nvalue=0, $bgcolor;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($bgcolor='blue', $nvalue=0)
+    public function __construct($nvalue=0)
     {
-        $this->bgcolor=$bgcolor;
+        $this->bgcolor=trans('theme.bgcolor');
         $this->nvalue=$nvalue;
     }
 
