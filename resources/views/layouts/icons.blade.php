@@ -1,6 +1,6 @@
 <div class="flex flex-wrap">
     @for($i = 0; $i < 10; $i++)
-    <a href="?{{ $i }}" class="border-gray-400 bg-gray-50 flex flex-row m-1 ">
+    <!-- <a href="?{{ $i }}" class="border-gray-400 bg-gray-50 flex flex-row m-1 ">
         <div class="flex border-l-blue-200 border-l-8 w-72 h-24 transition duration-500 shadow ease-in-out transform hover:-translate-y-1 hover:border-l-blue-600 hover:shadow-lg select-none cursor-pointer bg-white p-2 rounded-md">
             <div class="w-24 h-20 py-2 ">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
@@ -9,6 +9,9 @@
             </div>
             <div class="w-96 p-1 pl-2 font-semibold overflow-hidden">{{ $i }} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum in minima facilis facere optio ex deserunt? Quidem autem cum eos nam itaque explicabo voluptates maiores! Nobis explicabo libero dolor quaerat?</div>
         </div>
-    </a>
+    </a> -->
+    <x-icontextlink href="?{{ $i }}">
+       {{ $i }} Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod minus, beatae numquam commodi explicabo architecto veniam, odio quo, aliquid labore cum est! Perferendis inventore quas saepe autem, ipsam sunt ex?
+    </x-icontextlink>
     @endfor
 </div>
