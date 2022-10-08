@@ -71,6 +71,7 @@
                     echo trans('auth.failed');
                     @endphp
                 </x-statusbar>
+                <x-progressbar nvalue="25">Complete</x-progressbar>
                 <x-toast type='warning'>
                     <x-slot name='title'>Toast Heading</x-slot>
                     New Toast Message view
