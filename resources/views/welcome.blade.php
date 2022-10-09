@@ -60,6 +60,11 @@
                     <x-slot name='title'>Toast Heading</x-slot>
                     New Toast Message view
                 </x-toast>
+                <x-flexwrap class="p-1">
+                    @for ($i=1;$i < 9; $i++) 
+                        <x-chip img="https://i.pravatar.cc/48?img={{ $i }}">Hello world! {{ $i }}</x-chip>
+                    @endfor
+                </x-flexwrap>
             </div>
         </div>
     </body>
