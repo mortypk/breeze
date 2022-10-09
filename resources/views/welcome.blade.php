@@ -38,27 +38,7 @@
             @endif
 
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <x-alert type='info'>
-                    <x-slot name="title">
-                        Information Alert
-                    </x-slot>
-                    Laravel Welcome Page Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet nisi rerum perferendis ex veritatis, laboriosam ad explicabo porro, atque voluptates nihil? Explicabo autem eligendi molestiae rerum impedit unde dolorem eaque.
-                </x-alert>
-                <x-alert type='success'>
-                    <x-slot name="title">
-                        Success Alert
-                    </x-slot>
-                    Laravel Welcome Page Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet nisi rerum perferendis ex veritatis, laboriosam ad explicabo porro, atque voluptates nihil? Explicabo autem eligendi molestiae rerum impedit unde dolorem eaque.
-                </x-alert>
-                <x-alert type='warning'>
-                    <x-slot name="title">
-                        Warning Alert
-                    </x-slot>
-                    Laravel Welcome Page Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet nisi rerum perferendis ex veritatis, laboriosam ad explicabo porro, atque voluptates nihil? Explicabo autem eligendi molestiae rerum impedit unde dolorem eaque.
-                </x-alert>
-                <x-alert type='danger'>
-                    Laravel Welcome Page Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet nisi rerum perferendis ex veritatis, laboriosam ad explicabo porro, atque voluptates nihil? Explicabo autem eligendi molestiae rerum impedit unde dolorem eaque.
-                </x-alert>
+                <x-alert>Please beinform</x-alert>
                 <x-badge nvalue="10">Warnings</x-badge>
                 <x-headbar>
                     {{ __('captions.dashboard') }}
@@ -71,7 +51,11 @@
                     echo trans('auth.failed');
                     @endphp
                 </x-statusbar>
-                <x-progressbar nvalue="25">Complete</x-progressbar>
+                <div class="p-3">
+                    <x-progressbar percent='95' bgcolor='yellow' class="h-6">Complete</x-progressbar>
+                    <x-progressbar bgcolor="red" percent="15" class="rounded-md">half round corner</x-progressbar>
+                    <x-progressbar bgcolor="indigo" percent="15" class="rounded-full">full round corner</x-progressbar>
+                </div>
                 <x-toast type='warning'>
                     <x-slot name='title'>Toast Heading</x-slot>
                     New Toast Message view

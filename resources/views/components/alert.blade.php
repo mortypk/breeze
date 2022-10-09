@@ -1,5 +1,19 @@
+@php
+if(!isset($bgcolor)){
+    $bgcolor= trans('theme.bgcolor');
+}
+if(!isset($title)){
+    $title= '';
+}
+if(isset($type)){
+    $svgpath=trans('theme.'.$type.'SvgPath');
+}else{
+    $type='info';
+    $svgpath=trans('theme.'.$type.'SvgPath');
+}
+@endphp
 <!-- {{ $type }} Alert box start -->
-<div x-data class="relative mb-1 shadow " role="alert">
+<div x-data class="relative mb-1 shadow " role="alert" {{ $attributes->merge() }}>
     <div class="flex ">
         <div class="w-16 bg-{{ $bgcolor }}-500 p-2 text-center">
             <div class="flex h-full items-center p-2">
