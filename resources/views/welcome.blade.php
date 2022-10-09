@@ -52,19 +52,26 @@
                     @endphp
                 </x-statusbar>
                 <div class="p-3">
-                    <x-progressbar percent='95' bgcolor='yellow' class="h-6">Complete</x-progressbar>
-                    <x-progressbar bgcolor="red" percent="15" class="rounded-md">half round corner</x-progressbar>
-                    <x-progressbar bgcolor="indigo" percent="15" class="rounded-full">full round corner</x-progressbar>
+                    <x-progressbar percent='95' bgcolor='yellow' class="h-[20px]">Complete</x-progressbar>
+                    <x-progressbar bgcolor="red" percent="15" >half round corner</x-progressbar>
+                    <x-progressbar bgcolor="indigo" percent="15" >full round corner</x-progressbar>
                 </div>
                 <x-toast type='warning'>
                     <x-slot name='title'>Toast Heading</x-slot>
                     New Toast Message view
                 </x-toast>
-                <x-flexwrap class="p-1">
-                    @for ($i=1;$i < 9; $i++) 
+                <x-flexoverx class="p-1">
+                    @for ($i=1; $i < 9; $i++) 
                         <x-chip img="https://i.pravatar.cc/48?img={{ $i }}">Hello world! {{ $i }}</x-chip>
                     @endfor
-                </x-flexwrap>
+                </x-flexoverx>
+                <x-flexoverx class="pt-3 gap-2">
+                    @for ($i=1; $i < 9; $i++) 
+                        <x-badge bgcolor="yellow" nvalue="00{{ $i }}0">Notification</x-badge>
+                    @endfor
+                </x-flexoverx>
+                <x-button bgcolor="red">Cancel</x-button>
+                <x-button bgcolor="green">Save</x-button>
             </div>
         </div>
     </body>
