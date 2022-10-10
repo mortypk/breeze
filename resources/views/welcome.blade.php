@@ -37,7 +37,7 @@
                 </div>
             @endif
 
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div x-data="{ 'showModal': false }" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <x-alert>Please beinform</x-alert>
                 <x-badge nvalue="10">Warnings</x-badge>
                 <x-headbar>
@@ -70,8 +70,16 @@
                         <x-badge bgcolor="yellow" nvalue="00{{ $i }}0">Notification</x-badge>
                     @endfor
                 </x-flexoverx>
-                <x-button bgcolor="red">Cancel</x-button>
-                <x-button bgcolor="green">Save</x-button>
+                <div class="m-3" @keydown.escape="showModal = false">
+                    <x-button bgcolor="green"  @click="showModal = true">Save</x-button>
+                    <x-modal>
+                        <x-slot name="title">Modal 1 Information</x-slot>
+                    </x-modal>
+                    <x-modal>
+                        <x-slot name="title">Modal 2 Information</x-slot>
+                    </x-modal>
+                </div>
+                <x-button bgcolor="red" @click="showModal = true">Cancel</x-button>
             </div>
         </div>
     </body>
