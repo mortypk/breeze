@@ -62,24 +62,29 @@
                 </x-toast>
                 <x-flexoverx class="p-1">
                     @for ($i=1; $i < 9; $i++) 
+                    <x-slot>
                         <x-chip img="https://i.pravatar.cc/48?img={{ $i }}">Hello world! {{ $i }}</x-chip>
+                    </x-slot>
                     @endfor
                 </x-flexoverx>
                 <x-flexoverx class="pt-3 gap-2">
                     @for ($i=1; $i < 9; $i++) 
-                        <x-badge bgcolor="yellow" nvalue="00{{ $i }}0">Notification</x-badge>
+                    <x-badge bgcolor="yellow" nvalue="00{{ $i }}0">Notification</x-badge>
                     @endfor
                 </x-flexoverx>
-                <div class="m-3" @keydown.escape="showModal = false">
-                    <x-button bgcolor="green"  @click="showModal = true">Save</x-button>
-                    <x-modal>
-                        <x-slot name="title">Modal 1 Information</x-slot>
-                    </x-modal>
-                    <x-modal>
-                        <x-slot name="title">Modal 2 Information</x-slot>
-                    </x-modal>
-                </div>
-                <x-button bgcolor="red" @click="showModal = true">Cancel</x-button>
+                <x-flexoverx class="pt-3 gap-2">
+                    @for ($i=1; $i < 9; $i++) 
+                    @php
+                        $tempID = "modal_".strtotime("now");
+                    @endphp
+                    <x-modal-block modalID="{{ $tempID }}">
+                        <x-button bgcolor="green"  @click="{{ $tempID }} = true">Open {{ $i }}</x-button>
+                        <x-modal modalID="{{ $tempID }}">
+                            <x-slot name="title">Modal Information</x-slot>
+                        </x-modal>
+                    </x-modal-block>
+                    @endfor
+                </x-flexoverx>
             </div>
         </div>
     </body>

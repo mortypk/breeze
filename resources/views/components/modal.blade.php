@@ -11,11 +11,14 @@ if(isset($type)){
     $type='info';
     $svgpath=trans('theme.'.$type.'SvgPath');
 }
+if(!isset($modalID)){
+    $modalID= 'showModal';
+}
 @endphp
 <!-- Model Mask -->  
-    <div x-ref="showModal" x-show="showModal" class="absolute inset-0 flex items-center justify-center bg-gray-300 bg-opacity-75 p-1">
+    <div x-ref="{{ $modalID }}" x-show="{{ $modalID }}" class="absolute inset-0 flex items-center justify-center bg-gray-300 bg-opacity-75 p-1">
         <!-- Model Window -->
-        <div class="pointer-events-auto mx-auto block h-[80%] w-full max-w-4xl rounded-lg bg-clip-padding text-sm" @click.outside="showModal = false">
+        <div class="pointer-events-auto mx-auto block h-[80%] w-full max-w-4xl rounded-lg bg-clip-padding text-sm" @click.outside="{{ $modalID }} = false">
             <!-- Model Header -->
             <div class="flex items-center justify-between rounded-t-lg border-b border-blue-500 bg-blue-600 bg-clip-padding py-2 px-3">
             <p class="flex items-center font-bold text-white">
@@ -25,7 +28,7 @@ if(isset($type)){
                 {{ $title }}
             </p>
             <div class="flex items-center">
-                <button class="bg-transparent text-gray-200 hover:text-gray-700" @click="showModal = false">
+                <button class="bg-transparent text-gray-200 hover:text-gray-700" @click="{{ $modalID }} = false">
                 <svg class="ml-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
                     {!! __('theme.closeSvgPath') !!}
                 </svg>
@@ -41,7 +44,7 @@ if(isset($type)){
             <!-- Model Footer -->
             <div class="flex">
             <div class="flex h-10 w-full justify-end space-x-1 rounded-b-lg bg-gray-100 py-1 px-2 shadow-lg">
-                <button @click="showModal = false" class="transform rounded-md bg-red-600 px-4 py-1 font-medium capitalize tracking-wide text-white transition-colors duration-300 hover:bg-red-500 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-80" bgcolor="red">Cancel</button>
+                <button @click="{{ $modalID }} = false" class="transform rounded-md bg-red-600 px-4 py-1 font-medium capitalize tracking-wide text-white transition-colors duration-300 hover:bg-red-500 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-80" bgcolor="red">Cancel</button>
                 <button class="transform rounded-md bg-green-600 px-4 py-1 font-medium capitalize tracking-wide text-white transition-colors duration-300 hover:bg-green-500 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-80" bgcolor="green">Save</button>
             </div>
             </div>
