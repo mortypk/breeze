@@ -1,0 +1,77 @@
+[33mcommit 2c1ea5d1c95803f17969fa5423529cabbf949bde[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: mortypk <motypk@gmail.com>
+Date:   Tue Oct 11 14:51:04 2022 +0500
+
+    components superbadge added
+
+[33mcommit a3e248894fe794fad865c9316754dba1cff52012[m
+Author: mortypk <mortypk@gmail.com>
+Date:   Mon Oct 10 23:41:59 2022 +0500
+
+    modal block added
+
+[33mcommit 81a01e3e6d39648ca95f01aa46f97e86641acb3e[m
+Author: mortypk <motypk@gmail.com>
+Date:   Mon Oct 10 15:06:45 2022 +0500
+
+    components modal added
+
+[33mcommit 7442a4cab582769d753326e4b29f984048975634[m
+Author: mortypk <mortypk@gmail.com>
+Date:   Sun Oct 9 23:30:12 2022 +0500
+
+    component flexoverx, button added
+
+[33mcommit 41ce948e21b9b6cc8d5daa9f45b09e6c4a864368[m
+Author: mortypk <mortypk@gmail.com>
+Date:   Sun Oct 9 19:46:44 2022 +0500
+
+    chip and flexwrap added
+
+[33mcommit 8b9472eea903e326d872d5a72cb70d541abdf7b5[m
+Author: mortypk <mortypk@gmail.com>
+Date:   Sun Oct 9 18:14:48 2022 +0500
+
+    converted all class components to anyomous
+
+[33mcommit 18612b4e1c886c3219af87df95b658780275c54e[m
+Author: mortypk <mortypk@gmail.com>
+Date:   Sun Oct 9 00:44:55 2022 +0500
+
+    adding progress bar
+
+[33mcommit b2bfba2755920835e5e52eefa6e93fa390964d38[m
+Author: mortypk <mortypk@gmail.com>
+Date:   Fri Oct 7 23:57:46 2022 +0500
+
+    added toast, theme settings
+
+[33mcommit ac8a39373b78aaa61e7f48da3e16b0b22ae8268a[m
+Author: mortypk <motypk@gmail.com>
+Date:   Fri Oct 7 13:11:22 2022 +0500
+
+    components headbar, statusbar, icontextlink
+
+[33mcommit 5a3c726545bcb49fc26152a1c69a8f1605fa5dbb[m
+Author: mortypk <mortypk@gmail.com>
+Date:   Thu Oct 6 23:28:48 2022 +0500
+
+    Adding badge
+
+[33mcommit 183e23a9681f7a316d2a50724bd2acdd6c14c0e8[m
+Author: mortypk <motypk@gmail.com>
+Date:   Thu Oct 6 15:40:51 2022 +0500
+
+    alter components add
+
+[33mcommit a82178506a9dfa90a31245dd2fa88984496d4bf7[m
+Author: mortypk <motypk@gmail.com>
+Date:   Tue Sep 27 13:27:38 2022 +0500
+
+    change in layout
+
+[33mcommit b0fefa1077a086e25e8323c8e670d5e275213b83[m
+Author: mortypk <motypk@gmail.com>
+Date:   Mon Sep 26 14:15:18 2022 +0500
+
+    Initial Commit

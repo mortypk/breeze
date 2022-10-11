@@ -21,7 +21,7 @@
             }
         </style>
     </head>
-    <body class="antialiased">
+    <body  class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -37,7 +37,7 @@
                 </div>
             @endif
 
-            <div x-data="{ 'showModal': false }" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <x-alert>Please beinform</x-alert>
                 <x-badge nvalue="10">Warnings</x-badge>
                 <x-headbar>
@@ -72,19 +72,37 @@
                     <x-badge nvalue="00{{ $i }}">Notification</x-badge>
                     @endfor
                 </x-flexoverx>
-                <x-flexoverx class="pt-3 gap-2">
-                    @for ($i=1; $i < 9; $i++) 
-                    @php
-                        $tempID = "modal_".strtotime("now");
-                    @endphp
-                    <x-modal-block modalID="{{ $tempID }}">
-                        <x-button bgcolor="green"  @click="{{ $tempID }} = true">Open {{ $i }}</x-button>
-                        <x-modal modalID="{{ $tempID }}">
-                            <x-slot name="title">Modal Information</x-slot>
-                        </x-modal>
-                    </x-modal-block>
-                    @endfor
-                </x-flexoverx>
+                <div x-data="{ modal: 'none' }">
+                    <x-flexoverx class="pt-3 gap-2">
+                        @for ($i=1; $i < 9; $i++) 
+                        @php
+                            $tempID = "m".$i;
+                        @endphp
+                            <x-button @click="modal ='{{ $tempID }}'" bgcolor="green"  >Modal {{ $i }}</x-button>
+                            <x-modal modalID="{{ $tempID }}" btnCancel >
+                                <x-slot name="title">Modal Information</x-slot>
+                                <x-slot name="body">
+                                    Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit.<br> Dolores sapiente at nulla nam pariatur<br> obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
+                                    Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit.<br> Dolores sapiente at nulla nam pariatur<br> obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
+                                    Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit.<br> Dolores sapiente at nulla nam pariatur<br> obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
+                                    Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit.<br> Dolores sapiente at nulla nam pariatur<br> obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
+                                    Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit.<br> Dolores sapiente at nulla nam pariatur<br> obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
+                                    Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit.<br> Dolores sapiente at nulla nam pariatur<br> obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sapiente at nulla nam pariatur obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sapiente at nulla nam pariatur obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sapiente at nulla nam pariatur obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sapiente at nulla nam pariatur obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sapiente at nulla nam pariatur obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sapiente at nulla nam pariatur obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sapiente at nulla nam pariatur obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
+                                </x-slot>
+                                <x-slot name="footer">
+                                    <x-button>OK</x-button>
+                                </x-slot>
+                            </x-modal>
+                        @endfor
+                    </x-flexoverx>
+                </div>
             </div>
         </div>
     </body>
