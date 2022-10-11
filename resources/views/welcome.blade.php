@@ -43,7 +43,7 @@
                 <x-headbar>
                     {{ __('captions.dashboard') }}
                 </x-headbar>
-                <x-badge nvalue="70">Notification</x-badge>
+                <x-superbadge nvalue="70">Notification</x-superbadge>
                 @include('layouts.icons')
                 <x-statusbar>
                     {{ __('captions.status') }}
@@ -68,8 +68,8 @@
                     @endfor
                 </x-flexoverx>
                 <x-flexoverx class="pt-3 gap-2">
-                    @for ($i=1; $i < 9; $i++) 
-                    <x-badge bgcolor="yellow" nvalue="00{{ $i }}0">Notification</x-badge>
+                    @for ($i=1; $i < 19; $i++) 
+                    <x-badge nvalue="00{{ $i }}">Notification</x-badge>
                     @endfor
                 </x-flexoverx>
                 <x-flexoverx class="pt-3 gap-2">
