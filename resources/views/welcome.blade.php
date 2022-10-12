@@ -8,7 +8,9 @@
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Scripts -->
+        @vite( 'resources/js/app.js')
+        <script src="{{ asset('js/tailwindcss.js') }}"></script>
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <!-- Styles -->
         <style>
@@ -23,22 +25,47 @@
     </head>
     <body  class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+            
 
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <x-alert>Please beinform</x-alert>
+                <x-navbar>
+                    <x-nav-logo>
+                        <div>M</div>
+                        <div class="pl-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" class="h-5 w-5">
+                            <path d="M0 160v96C0 379.7 100.3 480 224 480s224-100.3 224-224V160H320v96c0 53-43 96-96 96s-96-43-96-96V160H0zm0-32H128V64c0-17.7-14.3-32-32-32H32C14.3 32 0 46.3 0 64v64zm320 0H448V64c0-17.7-14.3-32-32-32H352c-17.7 0-32 14.3-32 32v64z" />
+                            </svg>
+                        </div>
+                        <div>NSHI</div>
+                    </x-nav-logo>
+                    <x-navlink>Home</x-navlink>
+                    <x-navdropdown>
+                        <x-dropdownlink>One</x-dropdownlink>
+                        <x-dropdownlink>Two</x-dropdownlink>
+                        <x-dropdownlink>Three</x-dropdownlink>
+                    </x-navdropdown>
+                    <x-navdropdown>
+                        <x-dropdownlink>One</x-dropdownlink>
+                        <x-dropdownlink>Two</x-dropdownlink>
+                        <x-dropdownlink>Three</x-dropdownlink>
+                    </x-navdropdown>
+                    <div class="flex-grow"></div>
+                    @if (Route::has('login'))
+                            @auth
+                            <x-navlink href="{{ url('/dashboard') }}">Dashboard</x-navlink>
+                            @else
+                                <x-navlink href="{{ route('login') }}">Log in</x-navlink>
+                                @if (Route::has('register'))
+                                    <x-navlink href="{{ route('register') }}">Register</x-navlink>
+                                @endif
+                            @endauth
+                    @endif
+                </x-navbar>
+                <br><br><br><br>
+                <x-alert type='info'><x-slot name="title">Alert</x-slot> Please beinform</x-alert>
+                <x-alert type='warning'><x-slot name="title">Alert</x-slot> Please beinform</x-alert>
+                <x-alert type='danger'><x-slot name="title">Alert</x-slot> Please beinform</x-alert>
+                <x-alert type='success'><x-slot name="title">Alert</x-slot> Please beinform</x-alert>
                 <x-badge nvalue="10">Warnings</x-badge>
                 <x-headbar>
                     {{ __('captions.dashboard') }}
@@ -82,18 +109,6 @@
                             <x-modal modalID="{{ $tempID }}" btnCancel >
                                 <x-slot name="title">Modal Information</x-slot>
                                 <x-slot name="body">
-                                    Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit.<br> Dolores sapiente at nulla nam pariatur<br> obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
-                                    Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit.<br> Dolores sapiente at nulla nam pariatur<br> obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
-                                    Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit.<br> Dolores sapiente at nulla nam pariatur<br> obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
-                                    Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit.<br> Dolores sapiente at nulla nam pariatur<br> obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
-                                    Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit.<br> Dolores sapiente at nulla nam pariatur<br> obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
-                                    Lorem ipsum dolor sit amet, <br>consectetur adipisicing elit.<br> Dolores sapiente at nulla nam pariatur<br> obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sapiente at nulla nam pariatur obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sapiente at nulla nam pariatur obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sapiente at nulla nam pariatur obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sapiente at nulla nam pariatur obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sapiente at nulla nam pariatur obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sapiente at nulla nam pariatur obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sapiente at nulla nam pariatur obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
                                 </x-slot>
                                 <x-slot name="footer">

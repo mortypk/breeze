@@ -1,7 +1,4 @@
 @php
-if(!isset($bgcolor)){
-    $bgcolor= trans('theme.bgcolor');
-}
 if(!isset($title)){
     $title= '';
 }
@@ -14,6 +11,7 @@ if(isset($type)){
     $type='info';
     $svgpath=trans('theme.'.$type.'SvgPath');
 }
+$bgcolor=trans('theme.'.$type.'bgcolor');
 @endphp
 <div x-data x-ref="toast" class="pointer-events-auto mx-auto mb-3 block w-full rounded-lg bg-clip-padding text-sm shadow-lg" {{ $attributes->merge() }}>
     <div class="flex items-center justify-between rounded-t-lg border-b border-{{ $bgcolor }}-500 bg-{{ $bgcolor }}-600 bg-clip-padding py-2 px-3">
