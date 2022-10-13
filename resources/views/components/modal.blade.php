@@ -22,7 +22,7 @@ if(!isset($modalID)){
 }
 @endphp
 <!-- Model Mask -->  
-<div x-show="modal === '{{ $modalID }}'" x-ref="{{ $modalID }}" class="absolute z-50 inset-0 flex items-center justify-center bg-gray-200 bg-opacity-75 p-1" style="display: none;">
+<div x-show="modal === '{{ $modalID }}'"  x-ref="{{ $modalID }}" class="absolute z-50 inset-0 flex items-center justify-center bg-gray-200 bg-opacity-75 p-1" style="display: none;">
     <!-- Model Window -->
     <div class="pointer-events-auto mx-auto block h-[80vh] w-full max-w-4xl rounded-lg bg-clip-padding text-sm" @click.outside="modal = 'none'">
         <!-- Model Header -->
@@ -34,7 +34,7 @@ if(!isset($modalID)){
                 {{ $title }}
             </div>
             <div class="flex items-center">
-                <button class="bg-transparent text-gray-200 hover:text-gray-700" @click="modal = 'none'">
+                <button class="bg-transparent text-gray-200 hover:text-gray-700"  @click="modal = 'none'">
                 <svg class="ml-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
                     {!! __('theme.closeSvgPath') !!}
                 </svg>
@@ -51,7 +51,7 @@ if(!isset($modalID)){
         <div class="flex">
             <div class="flex h-10 w-full justify-end space-x-1 rounded-b-lg bg-gray-100 py-1 px-2 shadow-lg">
                 @if (isset($btnCancel))
-                <x-button @click="modal = 'none'" bgcolor="red" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center">
+                <x-button id="{{ $modalID }}close"  @click="modal = 'none'" bgcolor="red" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center">
                     Cancel
                 </x-button>
                 @endif

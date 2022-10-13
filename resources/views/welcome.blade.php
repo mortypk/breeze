@@ -8,11 +8,14 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/tailwindcss.js') }}"></script>
+        <!-- Alpine Plugins -->
+        <script defer src="https://unpkg.com/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
+        <!-- Alpine Core -->
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     </head>
-    <body  class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <body>
+        <div class="relative justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+            <div class="max-w-7xl mx-auto sm:px-1">
                 <x-navbar>
                     <x-nav-logo>
                         <div>M</div>
@@ -46,7 +49,7 @@
                             @endauth
                     @endif
                 </x-navbar>
-                <br><br><br><br>
+                <span class="m-1"></span>
                 <x-alert type='info'><x-slot name="title">Alert</x-slot> Please beinform</x-alert>
                 <x-alert type='warning'><x-slot name="title">Alert</x-slot> Please beinform</x-alert>
                 <x-alert type='danger'><x-slot name="title">Alert</x-slot> Please beinform</x-alert>
@@ -93,7 +96,7 @@
                 </x-flexoverx>
                 <x-flexoverx class="pt-3 gap-2">
                     @for ($i=1; $i < 19; $i++) 
-                    <x-badge nvalue="00{{ $i }}">Notification</x-badge>
+                    <x-badge nvalue="{{ $i }}">Notification</x-badge>
                     @endfor
                 </x-flexoverx>
                 <div x-data="{ modal: 'none' }">
@@ -102,7 +105,6 @@
                         @php
                             $tempID = "m".$i;
                         @endphp
-                            <x-button @click="modal ='{{ $tempID }}'" bgcolor="green"  >Modal {{ $i }}</x-button>
                             <x-modal modalID="{{ $tempID }}" btnCancel >
                                 <x-slot name="title">Modal Information</x-slot>
                                 <x-slot name="body">
@@ -112,10 +114,16 @@
                                     <x-button>OK</x-button>
                                 </x-slot>
                             </x-modal>
+                            <x-button @click="modal ='{{ $tempID }}';focusInput('{{ $tempID }}close'); " bgcolor="green"  >Modal {{ $i }}</x-button>
                         @endfor
                     </x-flexoverx>
                 </div>
             </div>
         </div>
+        <script>
+            function focusInput(e) {
+                document.getElementById(e).focus();
+            }
+        </script>
     </body>
 </html>
