@@ -99,6 +99,18 @@
                     <x-badge nvalue="{{ $i }}">Notification</x-badge>
                     @endfor
                 </x-flexoverx>
+                <x-tabs show='2'>
+                    <x-slot name="tabLinks">
+                        @for ($i=1; $i < 5; $i++) 
+                        <x-tabs-link ntab='{{ $i }}'>Dashboard {{ $i }}</x-tab-link>
+                        @endfor
+                    </x-slot>
+                    @for ($i=1; $i < 5; $i++) 
+                    <x-tabs-contents ntab='{{ $i }}'>
+                        {{ $i }} Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui dolores temporibus esse doloribus? Voluptates, molestiae iusto dolores corporis debitis veritatis tenetur culpa rerum maxime perferendis assumenda dignissimos voluptas magnam mollitia!
+                    </x-tabs-contents>
+                    @endfor
+                </x-tabs>
                 <div x-data="{ modal: 'none' }">
                     <x-flexoverx class="pt-3 gap-2">
                         @for ($i=1; $i < 9; $i++) 
