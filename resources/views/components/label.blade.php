@@ -1,0 +1,3 @@
+<div {{ $attributes->class(["inline-flex rounded-none border-y border-gray-300 bg-gray-200 px-2 text-gray-900 first:border-l first:rounded-l-md last:border-r last:rounded-r-md p-2"])->merge() }} />
+    {{ $slot }}    
+</div>

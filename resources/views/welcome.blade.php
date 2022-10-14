@@ -49,7 +49,17 @@
                             @endauth
                     @endif
                 </x-navbar>
-                <span class="m-1"></span>
+                <span class="grid gap-y-1 my-1">
+                    <x-group-input>
+                        <x-label>eMail</x-label>
+                        <x-input placeholder="you@example.com"></x-input>
+                    </x-group-input>
+                    <x-group-input>
+                        <x-label>Name</x-label>
+                        <x-input placeholder="first"></x-input>
+                        <x-input placeholder="last"></x-input>
+                    </x-group-input>
+                </span>
                 <x-alert type='info'><x-slot name="title">Alert</x-slot> Please beinform</x-alert>
                 <x-alert type='warning'><x-slot name="title">Alert</x-slot> Please beinform</x-alert>
                 <x-alert type='danger'><x-slot name="title">Alert</x-slot> Please beinform</x-alert>
