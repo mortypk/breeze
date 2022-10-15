@@ -10,7 +10,7 @@ if (!isset($title)) {
     $title = '';
 }
 @endphp
-<div x-data class="relative mb-1 shadow " role="alert" {{ $attributes->merge() }}>
+<div x-data class="relative mb-1 shadow " {{ $attributes->merge() }}>
     <!-- {{ $type }} Alert box start -->
     <div class="flex ">
         <div class="w-16 bg-{{ $bgcolor }}-200">

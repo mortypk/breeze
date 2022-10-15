@@ -51,13 +51,28 @@
                 </x-navbar>
                 <span class="grid gap-y-1 my-1">
                     <x-group-input>
-                        <x-label>eMail</x-label>
-                        <x-input placeholder="you@example.com"></x-input>
+                            <x-label>Choose</x-label>    
+                        <x-form.select>
+                            <x-form.option>One</x-form-option>
+                            <x-form.option selected>Two</x-form-option>
+                        </x-form.select>
+                        <x-form.spin bgcolor="red"></x-form.spin>
+                    </x-group-input>
+                    <x-group-input>
+                        <x-input type="file"></x-input>
+                    </x-group-input>
+                    <x-group-input>
+                        <x-input type="checkbox"></x-input>
+                        <x-form.gbutton>OK</x-form.gbutton>
                     </x-group-input>
                     <x-group-input>
                         <x-label>Name</x-label>
                         <x-input placeholder="first"></x-input>
-                        <x-input placeholder="last"></x-input>
+                        <x-form.gbutton>OK</x-form.gbutton>
+                    </x-group-input>
+                    <x-group-input>
+                    <x-label>Comments</x-label>
+                    <x-form.textarea rows="5"></x-textarea>
                     </x-group-input>
                 </span>
                 <x-alert type='info'><x-slot name="title">Alert</x-slot> Please beinform</x-alert>

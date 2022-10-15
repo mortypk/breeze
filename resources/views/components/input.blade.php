@@ -12,4 +12,5 @@ if(!isset($bgcolor)){
     $bgcolor= trans('theme.bgcolor');
 }
 @endphp
-<input type="{{ $type }}" {{ $attributes->class(["block w-full min-w-0 flex-1 rounded-none border border-gray-300 bg-white text-base first:rounded-l-md p-2 last:rounded-r-md"])->merge() }} />
+<input type="{{ $type }}" {{ $attributes->class(["block p-1 w-full min-w-0 flex-1 rounded-none border border-gray-300 bg-white text-base 
+first:rounded-l-md last:rounded-r-md"])->merge() }} />
