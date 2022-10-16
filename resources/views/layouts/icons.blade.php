@@ -1,7 +1,7 @@
-<x-flexwrap class="rounded-md">
+<x-layout.flexwrap class="rounded-md">
     @for($i = 0; $i < 10; $i++)
-    <x-icontextlink href="?{{ $i }}">
+    <x-view.icontextlink href="?{{ $i }}">
         {{ $i }} Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod minus, beatae numquam commodi explicabo architecto veniam, odio quo, aliquid labore cum est! Perferendis inventore quas saepe autem, ipsam sunt ex?
-    </x-icontextlink>
+    </x-view.icontextlink>
     @endfor
-</x-flexwrap>
+</x-layout.flexwrap>

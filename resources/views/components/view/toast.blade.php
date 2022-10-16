@@ -13,7 +13,7 @@ if(isset($type)){
 }
 $bgcolor=trans('theme.'.$type.'bgcolor');
 @endphp
-<div x-data x-ref="toast" class="pointer-events-auto mx-auto mb-3 block w-full rounded-lg bg-clip-padding text-sm shadow-lg" {{ $attributes->merge() }}>
+<div x-data x-ref="toast" {{ $attributes->class(["pointer-events-auto mx-auto mb-3 block w-full rounded-lg bg-clip-padding text-sm shadow-lg"])->merge() }}>
     <!-- toast start -->
     <div class="flex items-center justify-between rounded-t-lg border-b border-{{ $bgcolor }}-500 bg-{{ $bgcolor }}-600 bg-clip-padding py-2 px-3">
         <p class="flex items-center font-bold text-white">

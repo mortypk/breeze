@@ -51,9 +51,9 @@ if(!isset($modalID)){
         <div class="flex">
             <div class="flex h-10 w-full justify-end space-x-1 rounded-b-lg bg-gray-100 py-1 px-2 shadow-lg">
                 @if (isset($btnCancel))
-                <x-button id="{{ $modalID }}close"  @click="modal = 'none'" bgcolor="red" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center">
+                <x-form.button id="{{ $modalID }}close"  @click="modal = 'none'" bgcolor="red" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center">
                     Cancel
-                </x-button>
+                </x-form.button>
                 @endif
                 {{ $footer }}
             </div>

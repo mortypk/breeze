@@ -16,8 +16,8 @@
     <body>
         <div class="relative justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             <div class="max-w-7xl mx-auto sm:px-1">
-                <x-navbar>
-                    <x-nav-logo>
+                <x-nav.bar>
+                    <x-nav.logo>
                         <div>M</div>
                         <div class="pl-1">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" class="h-5 w-5">
@@ -25,135 +25,140 @@
                             </svg>
                         </div>
                         <div>NSHI</div>
-                    </x-nav-logo>
-                    <x-navlink>Home</x-navlink>
-                    <x-navdropdown>
-                        <x-dropdownlink>One</x-dropdownlink>
-                        <x-dropdownlink>Two</x-dropdownlink>
-                        <x-dropdownlink>Three</x-dropdownlink>
-                    </x-navdropdown>
-                    <x-navdropdown>
-                        <x-dropdownlink>One</x-dropdownlink>
-                        <x-dropdownlink>Two</x-dropdownlink>
-                        <x-dropdownlink>Three</x-dropdownlink>
-                    </x-navdropdown>
+                    </x-nav.logo>
+                    <x-nav.link>Home</x-nav.link>
+                    <x-nav.dropdown>
+                        <x-nav.dropdown-link>One</x-nav.dropdown-link>
+                        <x-nav.dropdown-link>Two</x-nav.dropdown-link>
+                        <x-nav.dropdown-link>Three</x-nav.dropdown-link>
+                    </x-nav.dropdown>
+                    <x-nav.dropdown>
+                        <x-nav.dropdown-link>One</x-nav.dropdown-link>
+                        <x-nav.dropdown-link>Two</x-nav.dropdown-link>
+                        <x-nav.dropdown-link>Three</x-nav.dropdown-link>
+                    </x-nav.dropdown>
                     <div class="flex-grow"></div>
                     @if (Route::has('login'))
                             @auth
-                            <x-navlink href="{{ url('/dashboard') }}">Dashboard</x-navlink>
+                            <x-nav.link href="{{ url('/dashboard') }}">Dashboard</x-nav.link>
                             @else
-                                <x-navlink href="{{ route('login') }}">Log in</x-navlink>
+                                <x-nav.link href="{{ route('login') }}">Log in</x-nav.link>
                                 @if (Route::has('register'))
-                                    <x-navlink href="{{ route('register') }}">Register</x-navlink>
+                                    <x-nav.link href="{{ route('register') }}">Register</x-nav.link>
                                 @endif
                             @endauth
                     @endif
-                </x-navbar>
+                </x-nav.bar>
                 <span class="grid gap-y-1 my-1">
-                    <x-group-input>
-                            <x-label>Choose</x-label>    
+                    <x-form.group-input>
+                            <x-form.label>Choose</x-form.label>    
                         <x-form.select>
                             <x-form.option>One</x-form-option>
                             <x-form.option selected>Two</x-form-option>
                         </x-form.select>
                         <x-form.spin bgcolor="red"></x-form.spin>
-                    </x-group-input>
-                    <x-group-input>
-                        <x-input type="file"></x-input>
-                    </x-group-input>
-                    <x-group-input>
-                        <x-input type="checkbox"></x-input>
+                    </x-form.group-input>
+                    <x-form.group-input>
+                        <x-form.input type="file"></x-form.input>
+                    </x-form.group-input>
+                    <x-form.group-input>
+                        <x-form.checkbox id="nocheck" bgcolor="red">Accept the policy</x-form.checkbox>
+                    </x-form.group-input>
+                    <x-form.group-input>
+                        <x-form.radio name="gender">male</x-form.radio>
+                    </x-form.group-input>
+                    <x-form.group-input>
+                        <x-form.radio name="gender">female</x-form.radio>
+                    </x-form.group-input>
+                    <x-form.group-input>
+                        <x-form.label>Name</x-form.label>
+                        <x-form.input placeholder="first"></x-form.input>
                         <x-form.gbutton>OK</x-form.gbutton>
-                    </x-group-input>
-                    <x-group-input>
-                        <x-label>Name</x-label>
-                        <x-input placeholder="first"></x-input>
-                        <x-form.gbutton>OK</x-form.gbutton>
-                    </x-group-input>
-                    <x-group-input>
-                    <x-label>Comments</x-label>
-                    <x-form.textarea rows="5"></x-textarea>
-                    </x-group-input>
+                    </x-form.group-input>
+                    <x-form.group-input>
+                    <x-form.label>Comments</x-form.label>
+                    <x-form.textarea rows="5"></x-form.textarea>
+                    </x-form.group-input>
                 </span>
-                <x-alert type='info'><x-slot name="title">Alert</x-slot> Please beinform</x-alert>
-                <x-alert type='warning'><x-slot name="title">Alert</x-slot> Please beinform</x-alert>
-                <x-alert type='danger'><x-slot name="title">Alert</x-slot> Please beinform</x-alert>
-                <x-alert type='success'><x-slot name="title">Alert</x-slot> Please beinform</x-alert>
-                <x-badge nvalue="10">Warnings</x-badge>
-                <x-headbar>
+                <x-view.alert type='info'><x-slot name="title">Alert</x-slot> Please beinform</x-view.alert>
+                <x-view.alert type='warning'><x-slot name="title">Alert</x-slot> Please beinform</x-view.alert>
+                <x-view.alert type='danger'><x-slot name="title">Alert</x-slot> Please beinform</x-view.alert>
+                <x-view.alert type='success'><x-slot name="title">Alert</x-slot> Please beinform</x-view.alert>
+                <x-view.badge nvalue="10">Warnings</x-view.badge>
+                <x-layout.headbar>
                     {{ __('captions.dashboard') }}
-                </x-headbar>
-                <x-superbadge nvalue="70">Notification</x-superbadge>
+                </x-layout.headbar>
+                <x-view.superbadge nvalue="70">Notification</x-view.superbadge>
                 @include('layouts.icons')
-                <x-statusbar>
+                <x-layout.statusbar>
                     {{ __('captions.status') }}
                     @php
                     echo trans('auth.failed');
                     @endphp
-                </x-statusbar>
+                </x-layout.statusbar>
                 <div class="p-3">
-                    <x-progressbar percent='95' bgcolor='yellow' class="h-[20px]">Complete</x-progressbar>
-                    <x-progressbar bgcolor="red" percent="15" >half round corner</x-progressbar>
-                    <x-progressbar bgcolor="indigo" percent="15" >full round corner</x-progressbar>
+                    <x-view.progressbar percent='95' bgcolor='yellow' class="h-[20px]">Complete</x-view.progressbar>
+                    <x-view.progressbar bgcolor="red" percent="15" >half round corner</x-view.progressbar>
+                    <x-view.progressbar bgcolor="indigo" percent="15" >full round corner</x-view.progressbar>
                 </div>
-                <x-toast type='info'>
+                <x-view.toast type='info'>
                     <x-slot name='title'>Toast Heading</x-slot>
                     New Toast Message view
-                </x-toast>
-                <x-toast type='danger'>
+                </x-view.toast>
+                <x-view.toast type='danger'>
                     <x-slot name='title'>Toast Heading</x-slot>
                     New Toast Message view
-                </x-toast>
-                <x-toast type='success'>
+                </x-view.toast>
+                <x-view.toast type='success'>
                     <x-slot name='title'>Toast Heading</x-slot>
                     New Toast Message view
-                </x-toast>
-                <x-toast type='warning'>
+                </x-view.toast>
+                <x-view.toast type='warning'>
                     <x-slot name='title'>Toast Heading</x-slot>
                     New Toast Message view
-                </x-toast>
-                <x-flexoverx class="p-1">
+                </x-view.toast>
+                <x-layout.flexoverx class="p-1">
                     @for ($i=1; $i < 9; $i++) 
                     <x-slot>
-                        <x-chip img="https://i.pravatar.cc/48?img={{ $i }}">Hello world! {{ $i }}</x-chip>
+                        <x-form.chip img="https://i.pravatar.cc/48?img={{ $i }}">Hello world! {{ $i }}</x-form.chip>
                     </x-slot>
                     @endfor
-                </x-flexoverx>
-                <x-flexoverx class="pt-3 gap-2">
+                </x-layout.flexoverx>
+                <x-layout.flexoverx class="pt-3 gap-2">
                     @for ($i=1; $i < 19; $i++) 
-                    <x-badge nvalue="{{ $i }}">Notification</x-badge>
+                    <x-view.badge nvalue="{{ $i }}">Notification</x-view.badge>
                     @endfor
-                </x-flexoverx>
-                <x-tabs show='2'>
+                </x-layout.flexoverx>
+                <x-view.tabs show='2'>
                     <x-slot name="tabLinks">
                         @for ($i=1; $i < 5; $i++) 
-                        <x-tabs-link ntab='{{ $i }}'>Dashboard {{ $i }}</x-tab-link>
+                        <x-view.tabs-link ntab='{{ $i }}'>Dashboard {{ $i }}</x-tab-link>
                         @endfor
                     </x-slot>
                     @for ($i=1; $i < 5; $i++) 
-                    <x-tabs-contents ntab='{{ $i }}'>
+                    <x-view.tabs-contents ntab='{{ $i }}'>
                         {{ $i }} Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui dolores temporibus esse doloribus? Voluptates, molestiae iusto dolores corporis debitis veritatis tenetur culpa rerum maxime perferendis assumenda dignissimos voluptas magnam mollitia!
-                    </x-tabs-contents>
+                    </x-view.tabs-contents>
                     @endfor
-                </x-tabs>
+                </x-view.tabs>
                 <div x-data="{ modal: 'none' }">
-                    <x-flexoverx class="pt-3 gap-2">
+                    <x-layout.flexoverx class="pt-3 gap-2">
                         @for ($i=1; $i < 9; $i++) 
                         @php
                             $tempID = "m".$i;
                         @endphp
-                            <x-modal modalID="{{ $tempID }}" btnCancel >
+                            <x-view.modal modalID="{{ $tempID }}" btnCancel >
                                 <x-slot name="title">Modal Information</x-slot>
                                 <x-slot name="body">
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sapiente at nulla nam pariatur obcaecati corporis, sint beatae, recusandae nemo nobis dolorem eligendi ipsum, iure minus? Sunt reprehenderit aliquid nisi.
                                 </x-slot>
                                 <x-slot name="footer">
-                                    <x-button>OK</x-button>
+                                    <x-form.button>OK</x-form.button>
                                 </x-slot>
-                            </x-modal>
-                            <x-button @click="modal ='{{ $tempID }}';focusInput('{{ $tempID }}close'); " bgcolor="green"  >Modal {{ $i }}</x-button>
+                            </x-view.modal>
+                            <x-form.button @click="modal ='{{ $tempID }}';focusInput('{{ $tempID }}close'); " bgcolor="green"  >Modal {{ $i }}</x-form.button>
                         @endfor
-                    </x-flexoverx>
+                    </x-layout.flexoverx>
                 </div>
             </div>
         </div>
