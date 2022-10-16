@@ -16,8 +16,11 @@
     <main class="flex-row h-screen w-full min-w-full bg-gray-100">
         <div class="mx-auto max-w-7xl">
             @include('layouts.header')
+            <x-layout.titlebar class="bg-white mt-1">
+                @yield('title')
+            </x-layout.titlebar>
             <x-layout.body>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur qui illum voluptatibus est voluptate aperiam sed minima accusamus ipsum corporis, neque assumenda culpa, animi, dignissimos voluptas maiores fugit quaerat quibusdam.
+                @yield('body')
             </x-layout.body>
             @include('layouts.footer')
             {{-- float message --}}

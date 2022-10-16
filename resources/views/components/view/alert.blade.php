@@ -23,8 +23,8 @@ if (!isset($title)) {
             </div>
         </div>
         <div class="w-full border-r-4 border-{{ $bgcolor }}-400 bg-white p-4">
-            <p class="font-bold text-{{ $bgcolor }}-900"> {{ $title }} </p>
-            <p class="text-sm text-gray-600">{{ $slot }} </p>
+            <p class="font-bold text-{{ $bgcolor }}-900"> {{ $title }}</p>
+            <p class="text-sm text-gray-600">{{ $slot }}</p>
         </div>
     </div>
     <button @click="$el.parentNode.remove()"

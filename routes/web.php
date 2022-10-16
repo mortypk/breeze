@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\StaffController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +14,15 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('home');
-});
-Route::resource('/posts', PostController::class);
-
+Route::get('/',[StaffController::class,'index']);
+// Route::get('/', function () {
+//     return view('home');
+// })->name('home');
+Route::resources([
+    '/posts'=> PostController::class,
+    '/staff'=> StaffController::class,
+]);
+Route::redirect('/student', '/', 301);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
