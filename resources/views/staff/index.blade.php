@@ -1,4 +1,8 @@
 @extends('home')
+@section('nav')
+@parent
+<x-nav.link href="{{ route('staff.index') }}">Staff</x-nav.link>
+@endsection
 @section('title')
 Staff List
 @endsection

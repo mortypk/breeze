@@ -1,6 +1,6 @@
 @extends('home')
 @section('title')
-Edit Staff
+Edit Staff Details
 @endsection
 @section('body')
 <div class="flex flex-col space-y-2">

@@ -10,6 +10,7 @@
             <div>NSHI</div>
         </x-nav.logo>
         <x-nav.link>Home</x-nav.link>
+        @yield('nav')
         <x-nav.dropdown>
             <x-nav.dropdown-link>One</x-nav.dropdown-link>
             <x-nav.dropdown-link>Two</x-nav.dropdown-link>

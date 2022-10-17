@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,17 +15,18 @@ use App\Http\Controllers\StaffController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',[StaffController::class,'index']);
-// Route::get('/', function () {
-//     return view('home');
-// })->name('home');
-Route::resources([
-    '/posts'=> PostController::class,
-    '/staff'=> StaffController::class,
-]);
-Route::redirect('/student', '/', 301);
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/',[StaffController::class,'index']);
+Route::get('/', function () {
+    return view('home');
+})->name('home');
 
-require __DIR__.'/auth.php';
+// Route::resources([
+//     '/student' => StudentController::class,
+// ]);
+// '/posts'=> PostController::class,
+// '/staff'=> StaffController::class,
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+
+// require __DIR__.'/auth.php';
