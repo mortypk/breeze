@@ -20,11 +20,11 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-// Route::resources([
-//     '/student' => StudentController::class,
-// ]);
-// '/posts'=> PostController::class,
-// '/staff'=> StaffController::class,
+Route::resources([
+    '/posts'=> PostController::class,
+    '/staff'=> StaffController::class,
+    '/student' => StudentController::class,
+]);
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');

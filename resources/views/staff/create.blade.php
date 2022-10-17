@@ -1,6 +1,6 @@
 @extends('home')
 @section('title')
-Edit Staff
+Add New Staff
 @endsection
 @section('body')
 <form method="POST" action="{{route('staff.store')}}">

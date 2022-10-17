@@ -9,7 +9,10 @@
             </div>
             <div>NSHI</div>
         </x-nav.logo>
-        <x-nav.link>Home</x-nav.link>
+        <x-nav.link href="{{ route('home') }}">Home</x-nav.link>
+        <x-nav.link href="{{ route('staff.index') }}">Staff</x-nav.link>
+        <x-nav.link href="{{ route('posts.index') }}">Posts</x-nav.link>
+        <x-nav.link href="{{ route('student.index') }}">Student</x-nav.link>
         @yield('nav')
         <x-nav.dropdown>
             <x-nav.dropdown-link>One</x-nav.dropdown-link>

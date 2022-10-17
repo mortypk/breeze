@@ -14,7 +14,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('student.index');
+        $students=Student::paginate(40);
+        return view('student.index',['students'=> $students]);
     }
 
     /**
@@ -24,7 +25,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('student.create');
     }
 
     /**
@@ -35,7 +36,29 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+                'name' => 'required',
+                'fname' => 'required',
+                'address' => 'required',
+                'phone' => 'required',
+                'gender' => 'required',
+                'birthday' => 'required',
+            ]);
+        $student=$request->all();
+        Student::create([
+            'name' => $student['name'],
+            'fname' => $student['fname'],
+            'address' => $student['address'],
+            'phone' => $student['phone'],
+            'gender' => $student['gender'],
+            'birthday' => $student['birthday'],
+
+        ]);
+        return redirect()->route('student.index')->with([
+            'type' => 'success',
+            'title' => 'Success',
+            'message' => 'Student Info Saved!',
+        ]);
     }
 
     /**
@@ -46,7 +69,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        return view('student.show', compact('student'));
     }
 
     /**
@@ -57,7 +80,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('student.edit', compact('student'));
     }
 
     /**
@@ -69,9 +92,22 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'fname' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'gender' => 'required',
+            'birthday' => 'required',
+        ]);
+        $student->update($request->all());
+        return redirect()->route('student.index')->with([
+            'type' => 'success',
+            'title' => 'Updated!',
+            'message' => 'Student Info Updated!',
+        ]);
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -80,6 +116,12 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        $u=$student->name;
+        $student->delete();
+        return redirect()->route('student.index')->with([
+            'type' => 'warning',
+            'title' => 'Deleted!',
+            'message' => "Student <b>$u</b> Info Deleted!",
+        ]);
     }
 }
