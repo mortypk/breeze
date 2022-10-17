@@ -26,7 +26,7 @@ class StaffController extends Controller
      */
     public function create()
     {
-        //
+        return view('staff.create');
     }
 
     /**
@@ -37,7 +37,22 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'title' => 'required',
+        ]);
+        
+        $staff= $request->all();
+        Staff::create([
+            'name' => $staff['name'],
+            'title' => $staff['title']
+        ]);
+
+        return redirect()->route('staff.index')->with([
+            'type'=> 'success',
+            'title'=> 'Saved!',
+            'message'=> 'Staff detail saved successfully',
+        ]);
     }
 
     /**
@@ -46,9 +61,9 @@ class StaffController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Staff $staff)
     {
-        return 'id'.$id;
+        return view('staff.show',compact('staff'));
     }
 
     /**
@@ -77,8 +92,11 @@ class StaffController extends Controller
         ]);
         
         $staff->update($request->all());
-        return redirect()->route('staff.index')->with('success','Staff detail updated successfully');
-        
+        return redirect()->route('staff.index')->with([
+            'type'=> 'success',
+            'title'=> 'Saved!',
+            'message'=> 'Staff detail update successfully',
+        ]);
     }
 
     /**
@@ -87,8 +105,14 @@ class StaffController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Staff $staff)
     {
-        //
+        $n=$staff->name;
+        $staff->delete();
+        return redirect()->route('staff.index')->with([
+            'type'=> 'warning',
+            'title'=> 'Notice!',
+            'message'=> 'Staff <b>"'.$n.'"</b> detail deleted successfully',
+        ]);
     }
 }

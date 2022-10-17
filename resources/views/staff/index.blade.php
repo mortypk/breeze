@@ -15,13 +15,24 @@ Staff List
         <td class="p-1">{{ $staff->id }}</td>
         <td class="p-1">{{ $staff->name }}</td>
         <td class="p-1">{{ $staff->title }}</td>
-        <td class="p-1">
+        <td class="flex space-x-1 p-1">
+            <x-form.button type="a" href="{{ route('staff.show', $staff->id) }}">Show</x-form.button>
             <x-form.button type="a" href="{{ route('staff.edit', $staff->id) }}">Edit</x-form.button>
+            <form action="{{ route('staff.destroy', $staff->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <x-form.button type="submit" bgcolor='red' href="{{ route('staff.edit', $staff->id) }}">Delete</x-form.button>
+            </form>
         </td>
     </x-layout.tbody>
     @endforeach
     <x-slot name="link">
+    <div class='flex space-x-3'>
+        <div class='flex-1'>
         {!! $staffs->onEachSide(2)->links() !!}
+        </div>
+        <x-form.button type='a'  href="{{ route('staff.create') }}" bgcolor='green'>New</x-form.button>
+    </div>
     </x-slot>
 </x-layout.table>
 @endsection

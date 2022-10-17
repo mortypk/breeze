@@ -10,7 +10,6 @@
     <script src="{{ asset('js/tailwindcss.js') }}"></script>
     <!-- Alpine Core -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
 </head>
 <body>
     <main class="flex-row h-screen w-full min-w-full bg-gray-100">
@@ -25,10 +24,12 @@
             @include('layouts.footer')
             {{-- float message --}}
             <div class="absolute bottom-1 right-1">
-                <x-view.toast type="warning" class="hideMe">
-                    <x-slot name='title'>Error</x-slot>
-                    Warning Message will hide 5s
+            @if(session('message'))
+                <x-view.toast type="{{ session('type') }}" class="hideMe">
+                    <x-slot name='title'>{{ session('title') }}</x-slot>
+                    {!! session('message') !!}
                 </x-view.toast>
+            @endif
             </div>
         </div>
     </main>
