@@ -3,9 +3,7 @@
 Add New Staff
 @endsection
 @section('body')
-<form method="POST" action="{{route('staff.store')}}">
-@csrf
-<div class="flex flex-col space-y-2">
+<x-form.form action="{{route('staff.store')}}">
     <x-form.group-input>
         <x-form.label>Name</x-form.label>
         <x-form.input name="name"></x-form.input>
@@ -18,6 +16,5 @@ Add New Staff
         <x-form.button type='a'  bgcolor="red" href="{{route('staff.index')}}">Close</x-form.button>
         <x-form.button type='submit' bgcolor="green">Save</x-form.button>
     </x-form.group-input>
-</div>
-</form>
+</x-form.form>
 @endsection

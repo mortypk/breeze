@@ -14,8 +14,8 @@ class TitleController extends Controller
      */
     public function index()
     {
-        $titles = title::panginate();
-        return view('staff.title.index');
+        $titles = title::paginate();
+        return view('staff.title.index',['titles' => $titles]);
     }
 
     /**
@@ -25,7 +25,7 @@ class TitleController extends Controller
      */
     public function create()
     {
-        //
+        return view('staff.title.create');
     }
 
     /**
@@ -36,7 +36,16 @@ class TitleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required'
+        ]);
+        $title=$request->all();
+        Title::create($title);
+        return redirect()->route('title.index')->with([
+            'type' => 'success',
+            'title' => 'Addition!',
+            'message' => 'Title saved!',
+        ]);
     }
 
     /**
@@ -47,7 +56,7 @@ class TitleController extends Controller
      */
     public function show(title $title)
     {
-        //
+        return view('staff.title.show', compact('title'));
     }
 
     /**
@@ -58,7 +67,7 @@ class TitleController extends Controller
      */
     public function edit(title $title)
     {
-        //
+        return view('staff.title.edit', compact('title'));
     }
 
     /**
@@ -70,7 +79,15 @@ class TitleController extends Controller
      */
     public function update(Request $request, title $title)
     {
-        //
+        $request->validate([
+            'title' => 'required'
+        ]);
+        $title->update($request->all());
+        return redirect()->route('title.index')->with([
+            'type' => 'success',
+            'title' => 'Updated!',
+            'message' => 'Title updated!',
+        ]);
     }
 
     /**
@@ -81,6 +98,12 @@ class TitleController extends Controller
      */
     public function destroy(title $title)
     {
-        //
+        $u=$title->title;
+        $title->delete();
+        return redirect()->route('title.index')->with([
+            'type' => 'warning',
+            'title' => 'Deletion!',
+            'message' => "Title <b>$u</b> Deleted!",
+        ]);
     }
 }

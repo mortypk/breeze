@@ -3,8 +3,7 @@
 Edit Staff
 @endsection
 @section('body')
-<form method="POST" action="{{route('staff.update', $staff->id)}}">
-@csrf
+<x-form.form action="{{ route('staff.update', $staff->id)}}">
 @method('PUT')
 <div class="flex flex-col space-y-2">
     <x-form.group-input>
@@ -20,5 +19,5 @@ Edit Staff
         <x-form.button type='submit' bgcolor="green">Save</x-form.button>
     </x-form.group-input>
 </div>
-</form>
+</x-form.form>
 @endsection
