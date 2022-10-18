@@ -13,11 +13,11 @@
         <x-nav.link href="{{ route('staff.index') }}">Staff</x-nav.link>
         <x-nav.link href="{{ route('posts.index') }}">Posts</x-nav.link>
         <x-nav.link href="{{ route('student.index') }}">Student</x-nav.link>
+        <x-nav.link href="{{ route('product.index') }}">Product</x-nav.link>
         @yield('nav')
-        <x-nav.dropdown>
-            <x-nav.dropdown-link>One</x-nav.dropdown-link>
-            <x-nav.dropdown-link>Two</x-nav.dropdown-link>
-            <x-nav.dropdown-link>Three</x-nav.dropdown-link>
+        <x-nav.dropdown caption="Staff">
+            <x-nav.dropdown-link href="{{ route('staff.index') }}">Staff List</x-nav.dropdown-link>
+            <x-nav.dropdown-link href="{{ route('title.index') }}">Designations</x-nav.dropdown-link>
         </x-nav.dropdown>
         <x-nav.dropdown>
             <x-nav.dropdown-link>One</x-nav.dropdown-link>

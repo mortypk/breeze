@@ -21,7 +21,7 @@ Staff List
             <form method="POST" action="{{ route('staff.destroy', $staff->id) }}" >
                 @csrf
                 @method('DELETE')
-                <x-form.button type="submit" bgcolor='red' href="{{ route('staff.edit', $staff->id) }}">Delete</x-form.button>
+                <x-form.button type="submit" bgcolor='red' >Delete</x-form.button>
             </form>
         </td>
     </x-layout.tbody>

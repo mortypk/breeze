@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\TitleController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StudentController;
 
 /*
@@ -23,7 +25,9 @@ Route::get('/', function () {
 Route::resources([
     '/posts'=> PostController::class,
     '/staff'=> StaffController::class,
+    '/title'=> TitleController::class,
     '/student' => StudentController::class,
+    '/product' => ProductController::class,
 ]);
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

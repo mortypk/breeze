@@ -1,11 +1,11 @@
 @extends('home')
 @section('title')
-Add New Student Info
+    Edit Student Info
 @endsection
 @section('body')
-<form method="POST" action="{{route('student.update',$student->id)}}">
-@csrf
-@method('PUT')
+    <form method="POST" action="{{ route('student.update',$student->id) }}">
+    @csrf
+    @method('PUT')
 <div class="flex flex-col space-y-2">
     <x-form.group-input>
         <x-form.label>Student Name</x-form.label>
