@@ -6,6 +6,7 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\TitleController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StudentController;
+use App\Http\Middleware\CheckAge;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,13 +18,16 @@ use App\Http\Controllers\StudentController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::get('/',[StaffController::class,'index']);
+Route::get('/s',[StaffController::class,'index'])->middleware(['check_age']);
 Route::get('/', function () {
     return view('home');
-})->name('home');
+})
+->name('home');
+
+Route::resource('/posts', PostController::class);
 
 Route::resources([
-    '/posts'=> PostController::class,
+    
     '/staff'=> StaffController::class,
     '/title'=> TitleController::class,
     '/student' => StudentController::class,
