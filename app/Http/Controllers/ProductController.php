@@ -109,7 +109,7 @@ class ProductController extends Controller
     {
         $u=$product->name;
         $product->delete();
-        return redirect()->route('product.index')->with([
+        return redirect()->back()->with([
             'type', 'warning',
             'title', 'Deleted!',
             'message', "Product $u Info Updated!",

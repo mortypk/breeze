@@ -27,7 +27,6 @@ class StudentController extends Controller
     {
         return view('student.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -42,7 +41,9 @@ class StudentController extends Controller
                 'address' => 'required',
                 'phone' => 'required',
                 'gender' => 'required',
-                'birthday' => 'required',
+                'birthday' => 'required|before:today',
+            ],[
+                'fname.required' => 'father name required!',
             ]);
         $student=$request->all();
         Student::create([

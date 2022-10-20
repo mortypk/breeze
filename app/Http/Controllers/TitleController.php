@@ -37,7 +37,7 @@ class TitleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required'
+            'title' => 'required|min:3|unique:titles,title'
         ]);
         $title=$request->all();
         Title::create($title);
@@ -100,7 +100,7 @@ class TitleController extends Controller
     {
         $u=$title->title;
         $title->delete();
-        return redirect()->route('title.index')->with([
+        return redirect()->back()->with([
             'type' => 'warning',
             'title' => 'Deletion!',
             'message' => "Title <b>$u</b> Deleted!",

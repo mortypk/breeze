@@ -109,7 +109,7 @@ class StaffController extends Controller
     {
         $n=$staff->name;
         $staff->delete();
-        return redirect()->route('staff.index')->with([
+        return redirect()->back()->with([
             'type'=> 'warning',
             'title'=> 'Notice!',
             'message'=> 'Staff <b>"'.$n.'"</b> detail deleted successfully',
