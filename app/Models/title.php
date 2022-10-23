@@ -11,4 +11,8 @@ class title extends Model
     protected $fillable = [
         'title'
     ];
+    public function staffs()
+    {
+        return $this->hasMany(Staff::class);
+    }
 }

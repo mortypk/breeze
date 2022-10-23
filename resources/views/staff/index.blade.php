@@ -14,7 +14,7 @@ Staff List
     <x-layout.tbody>
         <td class="p-1">{{ $staff->id }}</td>
         <td class="p-1">{{ $staff->name }}</td>
-        <td class="p-1">{{ $staff->title }}</td>
+        <td class="p-1">{{ $staff->title->title }}</td>
         <td class="flex space-x-1 p-1">
             <x-form.button type="a" href="{{ route('staff.show', $staff->id) }}">Show</x-form.button>
             <x-form.button type="a" href="{{ route('staff.edit', $staff->id) }}">Edit</x-form.button>

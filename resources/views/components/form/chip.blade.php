@@ -12,9 +12,7 @@ if(isset($img)){
 }
 @endphp
 <div x-data {{ $attributes->class(["flex w-fit cursor-pointer rounded-full bg-".$bgcolor."-200 text-".$bgcolor."-500 hover:text-".$bgcolor."-800"])->merge() }}>
-    @php
-        echo $img;
-    @endphp
+    {!! $img !!}
     <span class="flex items-center text-sm font-semibold px-3 py-2 truncate">{{ $slot }}{{ $title }}</span>
     <button class="hover bg-transparent focus:outline-none" @click="$el.parentNode.remove()">
         <svg class="mr-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">

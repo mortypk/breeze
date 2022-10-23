@@ -11,7 +11,7 @@ if(!isset($id)){
     border-r 
     first:border-l first:rounded-l-md 
     p-2" >
-    <input  id="{{ $id }}" type="radio" {{ $attributes->class(["w-6 h-6 accent-".$bgcolor."-600"])->merge() }} />
+    <input  id="{{ $id }}" type="radio" {{ $attributes->class(["w-6 h-6 accent-".$bgcolor."-600 focus:outline outline-2 outline-". $bgcolor."-400"])->merge() }} />
 </div>
 <label for="{{ $id }}" class="inline-flex flex-1 px-2 rounded-none border-y 
 cursor-pointer

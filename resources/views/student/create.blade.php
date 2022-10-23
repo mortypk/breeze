@@ -1,3 +1,6 @@
+@php
+    session(['age'=>14]);
+@endphp
 @extends('home')
 @section('title')
 Add New Student Info

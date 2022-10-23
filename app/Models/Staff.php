@@ -11,6 +11,9 @@ class Staff extends Model
     protected $table = 'staffs';
 
     protected $fillable = [
-        'name', 'title'
+        'name', 'title_id'
     ];
+    public function title(){
+        return $this->belongsTo(Title::class);
+    }
 }

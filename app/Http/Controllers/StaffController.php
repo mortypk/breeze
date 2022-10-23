@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Staff;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class StaffController extends Controller
@@ -15,7 +16,7 @@ class StaffController extends Controller
      */
     public function index()
     {
-        $staffs = Staff::paginate(30);
+        $staffs = Staff::with('title')->paginate(30);
         return view('staff.index',['staffs' => $staffs]);
     }
 

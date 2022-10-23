@@ -16,8 +16,8 @@ class CheckAge
      */
     public function handle(Request $request, Closure $next)
     {
-        $age = 15;
-        if($age < 14){
+        $age = session('age');
+        if($age == 14){
             return redirect()->route('posts.index');
         }
         return $next($request);

@@ -14,7 +14,7 @@ class TitleController extends Controller
      */
     public function index()
     {
-        $titles = title::paginate();
+        $titles = title::with('staffs')->paginate();
         return view('staff.title.index',['titles' => $titles]);
     }
 

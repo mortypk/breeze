@@ -16,9 +16,10 @@ class StaffFactory extends Factory
      */
     public function definition()
     {
+        $titleId = \App\Models\Title::inRandomOrder()->first();
         return [
             'name' => fake()->name(),
-            'title' => fake()->randomElement(['Manager', 'Operator', 'Gate Keeper', 'CEO']),
+            'title_id' => $titleId,
         ];
     }
 }

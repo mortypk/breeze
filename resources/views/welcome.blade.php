@@ -26,7 +26,7 @@
                         </div>
                         <div>NSHI</div>
                     </x-nav.logo>
-                    <x-nav.link>Home</x-nav.link>
+                    <x-nav.link href="{{ route('home') }}">Home</x-nav.link>
                     <x-nav.dropdown>
                         <x-nav.dropdown-link>One</x-nav.dropdown-link>
                         <x-nav.dropdown-link>Two</x-nav.dropdown-link>
@@ -98,7 +98,7 @@
                 </x-layout.statusbar>
                 <div class="p-3">
                     <x-view.progressbar percent='95' bgcolor='yellow' class="h-[20px]">Complete</x-view.progressbar>
-                    <x-view.progressbar bgcolor="red" percent="15" >half round corner</x-view.progressbar>
+                    <x-view.progressbar bgcolor="red" percent="15" class="rounded-full my-1" >half round corner</x-view.progressbar>
                     <x-view.progressbar bgcolor="indigo" percent="15" >full round corner</x-view.progressbar>
                 </div>
                 <x-view.toast type='info'>

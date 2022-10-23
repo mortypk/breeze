@@ -20,21 +20,26 @@ use App\Http\Middleware\CheckAge;
 */
 Route::get('/s',[StaffController::class,'index'])->middleware(['check_age']);
 Route::get('/', function () {
+    return view('welcome');
+})
+->name('welcome');
+Route::get('/home', function () {
     return view('home');
 })
+->middleware(['auth'])
 ->name('home');
 
-Route::resource('/posts', PostController::class);
-
+route::middleware(['auth'])->group(function(){
+    Route::resource('/posts', PostController::class);
+});
 Route::resources([
-    
     '/staff'=> StaffController::class,
     '/title'=> TitleController::class,
     '/student' => StudentController::class,
     '/product' => ProductController::class,
 ]);
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-// require __DIR__.'/auth.php';
+require __DIR__.'/auth.php';
