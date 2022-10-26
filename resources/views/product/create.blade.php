@@ -3,7 +3,7 @@
     Add New Product
 @endsection
 @section('body')
-    <form method="POST" action="{{ route('product.store') }}">
+    <form method="POST" action="{{ route('product.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="flex flex-col space-y-2">
         <x-form.group-input>
@@ -31,6 +31,24 @@
             <x-slot name='showError'>
                 {{ $message }}
             </x-slot>
+            @enderror
+        </x-form.group-input>
+        <x-form.group-input>
+            <x-form.label>Upload Picture</x-form.label>
+            <x-form.input type='file' name='item_image' accept="image/*"></x-form.input>
+            @error('item_image')
+                <x-slot name="showError">
+                    {{ $message }}
+                </x-slot>
+            @enderror
+        </x-form.group-input>
+        <x-form.group-input>
+            <x-form.label>Upload Picture</x-form.label>
+            <x-form.input type='file' name='item_images[]' accept="image/*" multiple></x-form.input>
+            @error('item_images')
+                <x-slot name="showError">
+                    {{ $message }}
+                </x-slot>
             @enderror
         </x-form.group-input>
     <div class="flex space-x-1 justify-end">

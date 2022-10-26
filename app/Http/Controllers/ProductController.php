@@ -40,13 +40,20 @@ class ProductController extends Controller
             'item_name' => 'required',
             'item_description' => 'required',
             'item_price' => 'required',
+            'item_image' => 'required|image',
         ]);
+        $newImageName='img_'.time().'.'.$request->item_image->extension();
+        $request->item_image->move(public_path('images'),$newImageName);
         $product = $request->all();
+        foreach($request->item_images as $key=>$img){
+            $newImageName="img_$key".time().'.'.$img->extension();
+            $img->move(public_path('images'),$newImageName);
+        }
         Product::create([
             'item_name' => $product['item_name'],
             'item_description' => $product['item_description'],
             'item_price' => $product['item_price'],
-            'item_image' => 'image.jpg',
+            'item_image' => $newImageName,
         ]);
         return redirect()->route('product.index')->with([
             'type', 'success',
