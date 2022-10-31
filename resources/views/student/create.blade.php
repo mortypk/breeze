@@ -67,6 +67,20 @@ Add New Student Info
         </x-slot>
         @enderror
     </x-form.group-input>
+    <x-form.group-input>
+        <x-form.label>Class</x-form.label>
+        <x-form.select name="grade_id">
+            <x-form.option>{{ old('grade_id') }}</x-form.option>
+            @foreach (\App\Models\Grade::all() as $StdClass)
+                <x-form.option value='{{ $StdClass->id }}'>{{ $StdClass->grade }}</x-form.option>
+            @endforeach
+        </x-form.select>
+        @error('grade_id')
+        <x-slot name="showError">
+            {{ $message }}
+        </x-slot>
+        @enderror
+    </x-form.group-input>
     <div class="flex space-x-1 justify-end">
         <x-form.button type='a' bgcolor="red" href="{{ route('student.index') }}">Cancel</x-form.button>
         <x-form.button type='submit' bgcolor="green">Save</x-form.button>

@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class title extends Model
+class Grade extends Model
 {
     use HasFactory;
-    protected $fillable = ['title'];
+    protected $fillable = ['grade'];
     
-    public function staffs()
+    public function students()
     {
-        return $this->hasMany(Staff::class);
+        return $this->hasMany(Student::class);
     }
 }

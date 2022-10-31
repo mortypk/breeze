@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Grade;
+use App\Models\Phone;
 use App\Models\Student;
+use App\Models\StudentClass;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -14,7 +17,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students=Student::paginate(40);
+        $students=Student::with('grade','phone')->paginate(40);
         return view('student.index',['students'=> $students]);
     }
 
@@ -46,14 +49,17 @@ class StudentController extends Controller
                 'fname.required' => 'father name required!',
             ]);
         $student=$request->all();
+        $phoneId=Phone::create([
+            'phone' => $student['phone'],
+        ]);
         Student::create([
             'name' => $student['name'],
             'fname' => $student['fname'],
             'address' => $student['address'],
-            'phone' => $student['phone'],
+            'phone_id' => $phoneId->id,
+            'grade_id' => $student['grade_id'],
             'gender' => $student['gender'],
             'birthday' => $student['birthday'],
-
         ]);
         return redirect()->route('student.index')->with([
             'type' => 'success',

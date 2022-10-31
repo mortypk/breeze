@@ -45,9 +45,11 @@ class ProductController extends Controller
         $newImageName='img_'.time().'.'.$request->item_image->extension();
         $request->item_image->move(public_path('images'),$newImageName);
         $product = $request->all();
-        foreach($request->item_images as $key=>$img){
-            $newImageName="img_$key".time().'.'.$img->extension();
-            $img->move(public_path('images'),$newImageName);
+        if(is_array($request->item_images)){
+            foreach($request->item_images as $key=>$img){
+                $newImageName="img_$key".time().'.'.$img->extension();
+                $img->move(public_path('images'),$newImageName);
+            }
         }
         Product::create([
             'item_name' => $product['item_name'],

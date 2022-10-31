@@ -19,10 +19,9 @@
             <x-nav.dropdown-link href="{{ route('staff.index') }}">Staff List</x-nav.dropdown-link>
             <x-nav.dropdown-link href="{{ route('title.index') }}">Designations</x-nav.dropdown-link>
         </x-nav.dropdown>
-        <x-nav.dropdown>
-            <x-nav.dropdown-link>One</x-nav.dropdown-link>
-            <x-nav.dropdown-link>Two</x-nav.dropdown-link>
-            <x-nav.dropdown-link>Three</x-nav.dropdown-link>
+        <x-nav.dropdown caption="Student">
+            <x-nav.link href="{{ route('student.index') }}">Student List</x-nav.link>
+            <x-nav.link href="{{ route('grade.index') }}">Grade List</x-nav.link>
         </x-nav.dropdown>
         <div class="flex-grow"></div>
         @if (Route::has('login'))

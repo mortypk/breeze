@@ -1,12 +1,13 @@
 <?php
 
+use App\Http\Middleware\CheckAge;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\GradeController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\TitleController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StudentController;
-use App\Http\Middleware\CheckAge;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,7 @@ Route::resources([
     '/title'=> TitleController::class,
     '/student' => StudentController::class,
     '/product' => ProductController::class,
+    '/grade' => GradeController::class,
 ]);
 Route::get('/dashboard', function () {
     return view('dashboard');

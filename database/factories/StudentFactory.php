@@ -16,12 +16,16 @@ class StudentFactory extends Factory
      */
     public function definition()
     {
+        
+        $phoneId = \App\Models\Phone::inRandomOrder()->first();
+        $classId = \App\Models\Grade::inRandomOrder()->first();
         return [
             'name' => fake()->name(),
             'fname' => fake()->name(),
             'gender' => fake()->randomElement(['male', 'female']),
             'address' => fake()->address(),
-            'phone' => fake()->phoneNumber(),
+            'phone_id' => $phoneId,
+            'grade_id' => $classId,
             'birthday' => fake()->dateTimeBetween('2001-01-01','2010-12-31'),
         ];
     }

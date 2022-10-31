@@ -18,6 +18,7 @@ List of Students
         <th>Father Name</th>
         <th>Phone</th>
         <th>Gender</th>
+        <th>Class</th>
         <th>Date of Birth</th>
         <th></th>
     </x-slot>
@@ -26,8 +27,9 @@ List of Students
         <td class="p-1">{{ $student->id }}</td>
         <td class="p-1">{{ $student->name }}</td>
         <td class="p-1">{{ $student->fname }}</td>
-        <td class="p-1">{{ $student->phone }}</td>
+        <td class="p-1">{{ $student->phone->phone }}</td>
         <td class="p-1">{{ $student->gender }}</td>
+        <td class="p-1">{{ $student->grade->grade }}</td>
         <td class="p-1">{{ \Carbon\Carbon::parse($student->birthday)->format('d-m-Y') }}</td>
         <td class="flex p-1 space-x-1">
             <x-form.button type="a" href="{{ route('student.show', $student->id) }}">Show</x-form.button>
